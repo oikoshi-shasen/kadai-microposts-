@@ -1,5 +1,10 @@
+
+
+
+
 @if (count($microposts) > 0)
     <ul class="list-unstyled">
+        
         @foreach ($microposts as $micropost)
             <li class="media mb-3">
                 {{-- 投稿の所有者のメールアドレスをもとにGravatarを取得して表示 --}}
