@@ -20,4 +20,11 @@
             <span class="badge badge-secondary">{{ $user->followers_count }}</span>
         </a>
     </li>
+    <!--お気に入り一覧-->
+    <li class="nav-item">
+        <a href="{{ route('micropost.favorite_ings',['id' => $user->id] ) }}" class="nav-link {{ Request::routeIs('micropost.favorite_ings') ? 'active' : '' }}">
+            Favorites
+            <span class="badge badge-secondary">{{ "ggg" }}</span>
+        </a>
+    </li>
 </ul>
