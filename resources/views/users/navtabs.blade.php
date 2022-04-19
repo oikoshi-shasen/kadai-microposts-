@@ -24,7 +24,7 @@
     <li class="nav-item">
         <a href="{{ route('micropost.favorite_ings',['id' => $user->id] ) }}" class="nav-link {{ Request::routeIs('micropost.favorite_ings') ? 'active' : '' }}">
             Favorites
-            <span class="badge badge-secondary">{{ "ggg" }}</span>
+            <span class="badge badge-secondary">{{ $user->favorite_ings_count }}</span>
         </a>
     </li>
 </ul>

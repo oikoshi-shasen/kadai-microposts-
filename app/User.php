@@ -45,6 +45,9 @@ class User extends Authenticatable
     public function loadRelationshipCounts()
     {
         $this->loadCount('microposts');
+        $this->loadCount('followings');
+        $this->loadCount('followers');
+        $this->loadCount('favorite_ings');
     }
     
     public function followings()
@@ -156,7 +159,7 @@ class User extends Authenticatable
          return Micropost::wherein('id', $favorite_Ids);
      }
 
-
+    
 
 
 }
