@@ -103,11 +103,8 @@ class User extends Authenticatable
     
     public function feed_microposts()
     {
-        // このユーザがフォロー中のユーザのidを取得して配列にする
         $userIds = $this->followings()->pluck('users.id')->toArray();
-        // このユーザのidもその配列に追加
         $userIds[] = $this->id;
-        // それらのユーザが所有する投稿に絞り込む
         return Micropost::whereIn('user_id', $userIds);
     }
 
@@ -120,16 +117,16 @@ class User extends Authenticatable
 
       public function favorite($userId)
     {
-        // すでにフォローしているか
+        
         $exist = $this->is_following($userId);
-        // 対象が自分自身かどうか
+        
         $its_me = $this->id == $userId;
 
         if ($exist || $its_me) {
-            // フォロー済み、または、自分自身の場合は何もしない
+           
             return false;
         } else {
-            // 上記以外はフォローする
+         
             $this->followings()->attach($userId);
             return true;
         }
